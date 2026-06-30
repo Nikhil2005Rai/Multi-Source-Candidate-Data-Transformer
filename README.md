@@ -34,35 +34,118 @@ and confidence/provenance toggles.
 The repository keeps fixture-based GitHub input for deterministic tests and
 demos, and also supports live GitHub API requests through `--github`.
 
-## Run
+## Setup
 
-Default canonical output:
+Open PowerShell in the project folder. For example:
 
-```bash
-python main.py --input samples/candidates.csv samples/github_profiles.json --id-map samples/identity_map.json --config configs/default.json --output outputs/default_output.json
+```powershell
+cd path\to\Eightfold
 ```
 
-Custom projected output:
+Option A: use the virtual environment.
 
-```bash
-python main.py --input samples/candidates.csv samples/github_profiles.json --id-map samples/identity_map.json --config configs/custom_projection.json --output outputs/custom_output.json
+```powershell
+.\.venv\Scripts\activate
 ```
 
-Live GitHub API request:
+Then install dependencies from `requirements.txt`:
 
-```bash
+```powershell
+pip install -r requirements.txt
+```
+
+Option B: do not use a virtual environment.
+
+Install dependencies directly with your Python:
+
+```powershell
+pip install -r requirements.txt
+```
+
+Then run commands with:
+
+```powershell
+python main.py ...
+```
+
+If you have a `.venv` but do not want to activate it, use this instead of
+`python` in every command:
+
+```powershell
+.\.venv\Scripts\python.exe main.py ...
+```
+
+## See Output In Terminal
+
+These commands print JSON directly in the terminal. They do not write to files.
+
+Default canonical output using CSV + GitHub fixture:
+
+```powershell
+python main.py --input samples/candidates.csv samples/github_profiles.json --id-map samples/identity_map.json --config configs/default.json
+```
+
+Custom projected output using CSV + GitHub fixture:
+
+```powershell
+python main.py --input samples/candidates.csv samples/github_profiles.json --id-map samples/identity_map.json --config configs/custom_projection.json
+```
+
+CSV + live GitHub API output:
+
+```powershell
 python main.py --input samples/candidates.csv --github Nikhil2005Rai --id-map samples/identity_map.json --config configs/custom_projection.json
 ```
 
-You can also pass a profile URL:
+Live GitHub API only:
 
-```bash
-python main.py --github https://github.com/octocat --config configs/custom_projection.json
+```powershell
+python main.py --github Nikhil2005Rai --config configs/custom_projection.json
 ```
 
-For higher GitHub rate limits, set `GITHUB_TOKEN` or pass `--github-token`.
+You can also pass a GitHub profile URL:
 
-Print to stdout by omitting `--output`.
+```powershell
+python main.py --github https://github.com/Nikhil2005Rai --config configs/custom_projection.json
+```
+
+## Write Output To Files
+
+Use `--output` only when you want to save JSON into a file. These are the exact
+commands for the provided output files.
+
+Write default canonical output:
+
+```powershell
+python main.py --input samples/candidates.csv samples/github_profiles.json --id-map samples/identity_map.json --config configs/default.json --output outputs/default_output.json
+```
+
+Write custom projected output:
+
+```powershell
+python main.py --input samples/candidates.csv samples/github_profiles.json --id-map samples/identity_map.json --config configs/custom_projection.json --output outputs/custom_output.json
+```
+
+Write CSV + live GitHub API output:
+
+```powershell
+python main.py --input samples/candidates.csv --github Nikhil2005Rai --id-map samples/identity_map.json --config configs/default.json --output outputs/live_github_output.json
+```
+
+Rule of thumb:
+
+```text
+No --output  = print JSON in terminal
+With --output = write JSON to that file
+```
+
+For higher GitHub API rate limits, set `GITHUB_TOKEN` before running a live
+GitHub command:
+
+```powershell
+$env:GITHUB_TOKEN="your_token_here"
+python main.py --github Nikhil2005Rai --config configs/custom_projection.json
+```
 
 ## Test
 

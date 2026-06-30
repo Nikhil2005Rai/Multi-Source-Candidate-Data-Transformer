@@ -1,0 +1,415 @@
+[
+  {
+    "candidate_id": "cand-001",
+    "full_name": "Nikhil Rai",
+    "emails": [
+      "nikhil@example.com"
+    ],
+    "phones": [
+      "+919876543210"
+    ],
+    "location": {
+      "city": null,
+      "region": null,
+      "country": "IN"
+    },
+    "links": {
+      "linkedin": null,
+      "github": "https://github.com/Nikhil2005Rai",
+      "portfolio": null,
+      "other": []
+    },
+    "headline": "Backend Engineer",
+    "years_experience": 3.0,
+    "skills": [
+      {
+        "name": "JavaScript",
+        "confidence": 0.8,
+        "sources": [
+          "candidates.csv:cand-001"
+        ]
+      },
+      {
+        "name": "PostgreSQL",
+        "confidence": 0.8,
+        "sources": [
+          "candidates.csv:cand-001"
+        ]
+      },
+      {
+        "name": "Python",
+        "confidence": 0.95,
+        "sources": [
+          "candidates.csv:cand-001",
+          "github:Nikhil2005Rai"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "confidence": 0.5,
+        "sources": [
+          "github:Nikhil2005Rai"
+        ]
+      }
+    ],
+    "experience": [
+      {
+        "company": "Eightfold AI",
+        "title": "Backend Engineer",
+        "start": "2023-01",
+        "end": null,
+        "summary": null
+      }
+    ],
+    "education": [
+      {
+        "institution": "NIET",
+        "degree": "B.Tech",
+        "field": "Computer Science",
+        "end_year": 2025
+      }
+    ],
+    "provenance": [
+      {
+        "field": "full_name",
+        "source": "candidates.csv:cand-001",
+        "method": "field:full_name",
+        "confidence": 1.0,
+        "raw_value": "Nikhil Rai",
+        "note": null
+      },
+      {
+        "field": "headline",
+        "source": "candidates.csv:cand-001",
+        "method": "field:headline",
+        "confidence": 0.75,
+        "raw_value": "Backend Engineer",
+        "note": null
+      },
+      {
+        "field": "headline",
+        "source": "github:Nikhil2005Rai",
+        "method": "field:headline",
+        "confidence": 0.65,
+        "raw_value": "BTech student passionate about coding, web development, and building projects.",
+        "note": "rejected_conflict:winner=candidates.csv:cand-001"
+      },
+      {
+        "field": "years_experience",
+        "source": "candidates.csv:cand-001",
+        "method": "field:years_experience",
+        "confidence": 0.9,
+        "raw_value": 3.0,
+        "note": null
+      },
+      {
+        "field": "location.country",
+        "source": "candidates.csv:cand-001",
+        "method": "normalize:country",
+        "confidence": 1.0,
+        "raw_value": "IN",
+        "note": null
+      },
+      {
+        "field": "links.github",
+        "source": "candidates.csv:cand-001",
+        "method": "field:github_url",
+        "confidence": 1.0,
+        "raw_value": "https://github.com/Nikhil2005Rai",
+        "note": null
+      },
+      {
+        "field": "emails",
+        "source": "candidates.csv:cand-001",
+        "method": "normalize:email",
+        "confidence": 1.0,
+        "raw_value": "nikhil@example.com",
+        "note": null
+      },
+      {
+        "field": "phones",
+        "source": "candidates.csv:cand-001",
+        "method": "normalize:phone",
+        "confidence": 0.93,
+        "raw_value": "9876543210",
+        "note": null
+      },
+      {
+        "field": "skills[JavaScript]",
+        "source": "candidates.csv:cand-001",
+        "method": "csv_field:skills",
+        "confidence": 0.8,
+        "raw_value": "JS",
+        "note": null
+      },
+      {
+        "field": "skills[PostgreSQL]",
+        "source": "candidates.csv:cand-001",
+        "method": "csv_field:skills",
+        "confidence": 0.8,
+        "raw_value": "PostgreSQL",
+        "note": null
+      },
+      {
+        "field": "skills[Python]",
+        "source": "candidates.csv:cand-001",
+        "method": "csv_field:skills",
+        "confidence": 0.95,
+        "raw_value": "Python",
+        "note": null
+      },
+      {
+        "field": "skills[TypeScript]",
+        "source": "github:Nikhil2005Rai",
+        "method": "github_repo:language",
+        "confidence": 0.5,
+        "raw_value": "TypeScript",
+        "note": null
+      },
+      {
+        "field": "experience",
+        "source": "candidates.csv:cand-001",
+        "method": "normalize:experience",
+        "confidence": 0.9,
+        "raw_value": {
+          "company": "Eightfold AI",
+          "title": "Backend Engineer",
+          "start": "Jan 2023",
+          "end": "Present",
+          "summary": null
+        },
+        "note": null
+      },
+      {
+        "field": "education",
+        "source": "candidates.csv:cand-001",
+        "method": "normalize:education",
+        "confidence": 0.9,
+        "raw_value": {
+          "institution": "NIET",
+          "degree": "B.Tech",
+          "field": "Computer Science",
+          "end_year": "2025"
+        },
+        "note": null
+      }
+    ],
+    "diagnostics": [
+      {
+        "source": "github:Nikhil2005Rai",
+        "stage": "merge",
+        "message": "Value lost conflict to higher confidence source: candidates.csv:cand-001",
+        "raw_value": "BTech student passionate about coding, web development, and building projects.",
+        "field": "headline"
+      }
+    ],
+    "overall_confidence": 0.896
+  },
+  {
+    "candidate_id": "cand-002",
+    "full_name": "Dakshit Jha",
+    "emails": [
+      "dakshit@example.com"
+    ],
+    "phones": [
+      "+14155550134"
+    ],
+    "location": {
+      "city": null,
+      "region": null,
+      "country": "US"
+    },
+    "links": {
+      "linkedin": null,
+      "github": "https://github.com/Dakshitj14",
+      "portfolio": null,
+      "other": []
+    },
+    "headline": "Data Engineer",
+    "years_experience": 5.0,
+    "skills": [
+      {
+        "name": "Machine Learning",
+        "confidence": 0.8,
+        "sources": [
+          "candidates.csv:cand-002"
+        ]
+      },
+      {
+        "name": "Python",
+        "confidence": 0.95,
+        "sources": [
+          "candidates.csv:cand-002",
+          "github:Dakshitj14"
+        ]
+      },
+      {
+        "name": "Scala",
+        "confidence": 0.5,
+        "sources": [
+          "github:Dakshitj14"
+        ]
+      },
+      {
+        "name": "Spark",
+        "confidence": 0.95,
+        "sources": [
+          "candidates.csv:cand-002",
+          "github:Dakshitj14"
+        ]
+      }
+    ],
+    "experience": [
+      {
+        "company": "Acme Data",
+        "title": "Data Engineer",
+        "start": "2021-06",
+        "end": null,
+        "summary": null
+      }
+    ],
+    "education": [
+      {
+        "institution": "State University",
+        "degree": "M.S.",
+        "field": "Data Science",
+        "end_year": 2020
+      }
+    ],
+    "provenance": [
+      {
+        "field": "full_name",
+        "source": "candidates.csv:cand-002",
+        "method": "field:full_name",
+        "confidence": 1.0,
+        "raw_value": "Dakshit Jha",
+        "note": null
+      },
+      {
+        "field": "headline",
+        "source": "candidates.csv:cand-002",
+        "method": "field:headline",
+        "confidence": 0.75,
+        "raw_value": "Data Engineer",
+        "note": null
+      },
+      {
+        "field": "headline",
+        "source": "github:Dakshitj14",
+        "method": "field:headline",
+        "confidence": 0.65,
+        "raw_value": "Data engineer focused on ML platforms.",
+        "note": "rejected_conflict:winner=candidates.csv:cand-002"
+      },
+      {
+        "field": "years_experience",
+        "source": "candidates.csv:cand-002",
+        "method": "field:years_experience",
+        "confidence": 0.9,
+        "raw_value": 5.0,
+        "note": null
+      },
+      {
+        "field": "location.country",
+        "source": "candidates.csv:cand-002",
+        "method": "normalize:country",
+        "confidence": 1.0,
+        "raw_value": "US",
+        "note": null
+      },
+      {
+        "field": "links.github",
+        "source": "candidates.csv:cand-002",
+        "method": "field:github_url",
+        "confidence": 1.0,
+        "raw_value": "https://github.com/Dakshitj14",
+        "note": null
+      },
+      {
+        "field": "emails",
+        "source": "candidates.csv:cand-002",
+        "method": "normalize:email",
+        "confidence": 1.0,
+        "raw_value": "dakshit@example.com",
+        "note": null
+      },
+      {
+        "field": "phones",
+        "source": "candidates.csv:cand-002",
+        "method": "normalize:phone",
+        "confidence": 0.93,
+        "raw_value": "+1 (415) 555-0134",
+        "note": null
+      },
+      {
+        "field": "skills[Machine Learning]",
+        "source": "candidates.csv:cand-002",
+        "method": "csv_field:skills",
+        "confidence": 0.8,
+        "raw_value": "ML",
+        "note": null
+      },
+      {
+        "field": "skills[Python]",
+        "source": "candidates.csv:cand-002",
+        "method": "csv_field:skills",
+        "confidence": 0.95,
+        "raw_value": "Python",
+        "note": null
+      },
+      {
+        "field": "skills[Scala]",
+        "source": "github:Dakshitj14",
+        "method": "github_repo:languages",
+        "confidence": 0.5,
+        "raw_value": "Scala",
+        "note": null
+      },
+      {
+        "field": "skills[Spark]",
+        "source": "candidates.csv:cand-002",
+        "method": "csv_field:skills",
+        "confidence": 0.95,
+        "raw_value": "Spark",
+        "note": null
+      },
+      {
+        "field": "experience",
+        "source": "candidates.csv:cand-002",
+        "method": "normalize:experience",
+        "confidence": 0.9,
+        "raw_value": {
+          "company": "Acme Data",
+          "title": "Data Engineer",
+          "start": "06/2021",
+          "end": "Present",
+          "summary": null
+        },
+        "note": null
+      },
+      {
+        "field": "education",
+        "source": "candidates.csv:cand-002",
+        "method": "normalize:education",
+        "confidence": 0.9,
+        "raw_value": {
+          "institution": "State University",
+          "degree": "M.S.",
+          "field": "Data Science",
+          "end_year": "2020"
+        },
+        "note": null
+      }
+    ],
+    "diagnostics": [
+      {
+        "source": "github:Dakshitj14",
+        "stage": "merge",
+        "message": "Value lost conflict to higher confidence source: candidates.csv:cand-002",
+        "raw_value": "Data engineer focused on ML platforms.",
+        "field": "headline"
+      }
+    ],
+    "overall_confidence": 0.905
+  }
+]
