@@ -1,0 +1,14 @@
+[project]
+name = "eightfold"
+version = "0.1.0"
+description = "Multi-source candidate data transformer"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "phonenumbers>=8.13",
+    "pycountry>=24.6",
+    "pydantic>=2.0",
+]
+
+[project.scripts]
+eightfold-transform = "transformer.cli:main"
