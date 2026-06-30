@@ -6,7 +6,7 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict, ValidationError as PydanticValidationError, create_model
 
-from transformer.models.config import ProjectionConfig
+from transformer.models.config import OnMissing, ProjectionConfig
 
 
 class ValidationError(ValueError):
@@ -38,12 +38,14 @@ class OutputValidator:
             model_fields: dict[str, tuple[Any, Any]] = {}
             for field in config.fields:
                 py_type = self._python_type(field.type)
+                nullable_type = py_type | None
                 if field.path in output:
-                    model_fields[field.path] = (py_type | None, ...)
-                elif field.required:
-                    model_fields[field.path] = (py_type | None, ...)
+                    expected_type = nullable_type if config.on_missing == OnMissing.NULL else py_type
+                    model_fields[field.path] = (expected_type, ...)
+                elif field.required and config.on_missing == OnMissing.ERROR:
+                    model_fields[field.path] = (py_type, ...)
                 else:
-                    model_fields[field.path] = (py_type | None, None)
+                    model_fields[field.path] = (nullable_type, None)
 
             ProjectionModel = create_model(
                 "ProjectionModel",

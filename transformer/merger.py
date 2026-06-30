@@ -305,12 +305,27 @@ class MergeEngine:
 
     @staticmethod
     def _adjusted_confidence(winner: ValueEvidence, values: list[ValueEvidence]) -> float:
+        """Boost corroborated winners and penalize only genuine competing values."""
         corroborating_sources = {
             item.source_id for item in values if item.value == winner.value and item.source_id != winner.source_id
         }
         if corroborating_sources:
             return round(min(1.0, winner.confidence + 0.10), 3)
-        return round(max(0.0, winner.confidence - 0.10), 3)
+
+        # Confidence-penalty bug fix:
+        # A single emitted value can mean either "another source tried this same
+        # field and lost with a different value" or simply "no other source had
+        # that field at all." The old flat penalty treated both as weak evidence,
+        # which unfairly lowered CSV-only fields such as years_experience and
+        # location.region. We keep the deterministic rule-based model, but make
+        # the tradeoff explicit: lack of corroboration is neutral, while an
+        # actual conflicting attempt from another source still reduces trust.
+        conflicting_sources = {
+            item.source_id for item in values if item.value != winner.value and item.source_id != winner.source_id
+        }
+        if conflicting_sources:
+            return round(max(0.0, winner.confidence - 0.10), 3)
+        return winner.confidence
 
     @staticmethod
     def _stable_candidate_id(identity: str) -> str:

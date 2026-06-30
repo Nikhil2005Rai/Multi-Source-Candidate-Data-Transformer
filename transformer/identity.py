@@ -38,7 +38,14 @@ class IdentityResolver:
     def resolve(self, candidates: list[RawCandidate]) -> IdentityResolutionResult:
         groups: dict[str, list[RawCandidate]] = defaultdict(list)
         diagnostics_by_identity: dict[str, list[DiagnosticEntry]] = defaultdict(list)
-        github_to_candidate = {v: k for k, v in self.id_map.items()}
+
+        # Identity-map inversion note:
+        # GitHub records arrive with the mapped GitHub id, but groups are keyed
+        # by candidate id. Building this reverse map gives O(1) lookup for each
+        # GitHub record and preserves correctness: checking id_map.values()
+        # could tell us a GitHub id exists, but not which candidate key owns it.
+        github_to_candidate = {v.lower(): k for k, v in self.id_map.items()}
+        csv_github_to_candidate = self._csv_github_identities(candidates)
 
         for candidate in candidates:
             identity = None
@@ -46,10 +53,13 @@ class IdentityResolver:
             if candidate.source.source_type == SourceType.CSV and candidate.raw_id in self.id_map:
                 identity = str(candidate.raw_id)
                 identity_method = "explicit_id_map"
-            elif candidate.source.source_type == SourceType.GITHUB and candidate.raw_id in github_to_candidate:
-                identity = github_to_candidate[str(candidate.raw_id)]
+            elif candidate.source.source_type == SourceType.GITHUB and candidate.raw_id and candidate.raw_id.lower() in github_to_candidate:
+                identity = github_to_candidate[candidate.raw_id.lower()]
                 identity_method = "explicit_id_map"
 
+            if identity is None:
+                identity = self._github_identity(candidate, csv_github_to_candidate)
+                identity_method = "github_url" if identity else None
             if identity is None:
                 identity = self._email_identity(candidate)
                 identity_method = "email" if identity else None
@@ -74,6 +84,16 @@ class IdentityResolver:
                         field="emails",
                     )
                 )
+            elif identity_method == "github_url":
+                diagnostics_by_identity[identity].append(
+                    DiagnosticEntry(
+                        source=candidate.source.source_id,
+                        stage="identity",
+                        message="Resolved identity using CSV GitHub URL fallback.",
+                        raw_value=candidate.raw_id or candidate.github_url,
+                        field="links.github",
+                    )
+                )
 
             groups[identity].append(candidate)
 
@@ -85,3 +105,30 @@ class IdentityResolver:
             if normalized:
                 return f"email:{normalized}"
         return None
+
+    def _github_identity(self, candidate: RawCandidate, csv_github_to_candidate: dict[str, str]) -> str | None:
+        username = candidate.raw_id if candidate.source.source_type == SourceType.GITHUB else candidate.github_url
+        normalized = self._normalize_github_username(username)
+        if normalized:
+            return csv_github_to_candidate.get(normalized)
+        return None
+
+    def _csv_github_identities(self, candidates: list[RawCandidate]) -> dict[str, str]:
+        identities: dict[str, str] = {}
+        for candidate in candidates:
+            if candidate.source.source_type != SourceType.CSV or not candidate.github_url:
+                continue
+            username = self._normalize_github_username(candidate.github_url)
+            if username:
+                identities[username] = str(candidate.raw_id or candidate.source.source_id)
+        return identities
+
+    @staticmethod
+    def _normalize_github_username(value: str | None) -> str | None:
+        if not value:
+            return None
+        text = value.strip().rstrip("/")
+        if not text:
+            return None
+        username = text.split("/")[-1]
+        return username.lower() if username else None

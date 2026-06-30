@@ -40,7 +40,7 @@ def main() -> None:
         github_users=args.github,
         github_token=github_token,
     )
-    payload = json.dumps(outputs, indent=2, ensure_ascii=False)
+    payload = json.dumps(outputs, indent=2, ensure_ascii=True)
 
     if args.output:
         Path(args.output).write_text(payload + "\n", encoding="utf-8")

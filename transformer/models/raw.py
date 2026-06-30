@@ -7,6 +7,14 @@ be normalized yet.
 
 from __future__ import annotations
 
+# Duplicate-model cleanup note:
+# The old Pydantic raw-model variant is intentionally not kept alongside this
+# file. RawCandidate objects are internal parse results consumed by identity
+# resolution and merging, so dataclasses keep construction cheap and flexible
+# while source-specific cleanup happens in parsers/normalizers. Pydantic is
+# still used at the OutputValidator boundary, where validating user-visible JSON
+# provides a clearer contract than validating every intermediate mutation.
+
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from enum import Enum

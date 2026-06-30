@@ -65,6 +65,11 @@ class Projector:
         if config.on_missing == OnMissing.NULL:
             output[field.path] = None
 
+    # Projector type-coercion note:
+    # FieldConfig.type describes the expected output shape for OutputValidator;
+    # it is not an instruction for the projector to coerce extracted values.
+    # Keeping projection non-coercive preserves source/merge semantics and
+    # surfaces mismatches at validation time instead of silently converting data.
     def _apply_normalization(self, value: Any, field: FieldConfig) -> Any:
         if value is MISSING or field.normalize is None:
             return value

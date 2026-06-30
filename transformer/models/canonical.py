@@ -6,6 +6,15 @@ them. This model is intentionally internal: callers receive only projected JSON.
 
 from __future__ import annotations
 
+# Duplicate-model cleanup note:
+# The historical Pydantic version of this module is dead code for the current
+# architecture: parsers, merger, projector, and pipeline all import these
+# dataclasses directly. We keep canonical models as dataclasses because they are
+# internal transport objects that are created and reshaped frequently after
+# parser-level normalization, where Pydantic's runtime validation overhead would
+# not buy much safety. Pydantic remains valuable at the OutputValidator boundary,
+# where external JSON shape is finally checked against the requested projection.
+
 from dataclasses import dataclass, field
 from typing import Any
 

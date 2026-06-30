@@ -3,30 +3,29 @@
     "full_name": "Nikhil Rai",
     "primary_email": "nikhil@example.com",
     "primary_phone": "+919876543210",
-    "github": "https://github.com/nikhilrai",
+    "github": "https://github.com/Nikhil2005Rai",
     "skills": [
+      "C++",
+      "CSS",
+      "EJS",
+      "HTML",
+      "Java",
       "JavaScript",
+      "Jupyter Notebook",
+      "MDX",
       "PostgreSQL",
       "Python",
       "TypeScript"
     ],
-    "overall_confidence": 0.849,
+    "overall_confidence": 0.772,
     "provenance": [
       {
         "field": "full_name",
         "source": "candidates.csv:cand-001",
         "method": "field:full_name",
-        "confidence": 0.8,
+        "confidence": 1.0,
         "raw_value": "Nikhil Rai",
         "note": null
-      },
-      {
-        "field": "full_name",
-        "source": "github:nikhilrai",
-        "method": "field:full_name",
-        "confidence": 0.7,
-        "raw_value": "Nikhil R.",
-        "note": "rejected_conflict:winner=candidates.csv:cand-001"
       },
       {
         "field": "headline",
@@ -38,17 +37,17 @@
       },
       {
         "field": "headline",
-        "source": "github:nikhilrai",
+        "source": "github:Nikhil2005Rai",
         "method": "field:headline",
         "confidence": 0.65,
-        "raw_value": "Backend engineer building data pipelines.",
+        "raw_value": "\ud83d\udc68\u200d\ud83d\udcbb BTech student passionate about coding, web development, and creating innovative projects. \ud83d\ude80 Always learning and building cool stuff.",
         "note": "rejected_conflict:winner=candidates.csv:cand-001"
       },
       {
         "field": "years_experience",
         "source": "candidates.csv:cand-001",
         "method": "field:years_experience",
-        "confidence": 0.8,
+        "confidence": 0.9,
         "raw_value": 3.0,
         "note": null
       },
@@ -56,7 +55,7 @@
         "field": "location.country",
         "source": "candidates.csv:cand-001",
         "method": "normalize:country",
-        "confidence": 1.0,
+        "confidence": 0.9,
         "raw_value": "IN",
         "note": null
       },
@@ -65,14 +64,14 @@
         "source": "candidates.csv:cand-001",
         "method": "field:github_url",
         "confidence": 1.0,
-        "raw_value": "https://github.com/nikhilrai",
+        "raw_value": "https://github.com/Nikhil2005Rai",
         "note": null
       },
       {
         "field": "emails",
         "source": "candidates.csv:cand-001",
         "method": "normalize:email",
-        "confidence": 1.0,
+        "confidence": 0.93,
         "raw_value": "nikhil@example.com",
         "note": null
       },
@@ -80,16 +79,72 @@
         "field": "phones",
         "source": "candidates.csv:cand-001",
         "method": "normalize:phone",
-        "confidence": 0.83,
+        "confidence": 0.93,
         "raw_value": "9876543210",
+        "note": null
+      },
+      {
+        "field": "skills[C++]",
+        "source": "github:Nikhil2005Rai",
+        "method": "github_repo:language",
+        "confidence": 0.5,
+        "raw_value": "C++",
+        "note": null
+      },
+      {
+        "field": "skills[CSS]",
+        "source": "github:Nikhil2005Rai",
+        "method": "github_repo:language",
+        "confidence": 0.5,
+        "raw_value": "CSS",
+        "note": null
+      },
+      {
+        "field": "skills[EJS]",
+        "source": "github:Nikhil2005Rai",
+        "method": "github_repo:language",
+        "confidence": 0.5,
+        "raw_value": "EJS",
+        "note": null
+      },
+      {
+        "field": "skills[HTML]",
+        "source": "github:Nikhil2005Rai",
+        "method": "github_repo:language",
+        "confidence": 0.5,
+        "raw_value": "HTML",
+        "note": null
+      },
+      {
+        "field": "skills[Java]",
+        "source": "github:Nikhil2005Rai",
+        "method": "github_repo:language",
+        "confidence": 0.5,
+        "raw_value": "Java",
         "note": null
       },
       {
         "field": "skills[JavaScript]",
         "source": "candidates.csv:cand-001",
         "method": "csv_field:skills",
-        "confidence": 0.8,
+        "confidence": 0.95,
         "raw_value": "JS",
+        "note": null
+      },
+      {
+        "field": "skills[Jupyter Notebook]",
+        "source": "github:Nikhil2005Rai",
+        "method": "github_repo:language",
+        "confidence": 0.5,
+        "raw_value": "Jupyter Notebook",
+        "note": null
+      },
+      {
+        "field": "skills[MDX]",
+        "source": "github:Nikhil2005Rai",
+        "method": "github_repo:language",
+        "confidence": 0.5,
+        "raw_value": "MDX",
         "note": null
       },
       {
@@ -110,7 +165,7 @@
       },
       {
         "field": "skills[TypeScript]",
-        "source": "github:nikhilrai",
+        "source": "github:Nikhil2005Rai",
         "method": "github_repo:language",
         "confidence": 0.5,
         "raw_value": "TypeScript",
@@ -146,63 +201,47 @@
     ],
     "diagnostics": [
       {
-        "source": "github:nikhilrai",
+        "source": "github:Nikhil2005Rai",
         "stage": "merge",
         "message": "Value lost conflict to higher confidence source: candidates.csv:cand-001",
-        "raw_value": "Nikhil R.",
-        "field": "full_name"
-      },
-      {
-        "source": "github:nikhilrai",
-        "stage": "merge",
-        "message": "Value lost conflict to higher confidence source: candidates.csv:cand-001",
-        "raw_value": "Backend engineer building data pipelines.",
+        "raw_value": "\ud83d\udc68\u200d\ud83d\udcbb BTech student passionate about coding, web development, and creating innovative projects. \ud83d\ude80 Always learning and building cool stuff.",
         "field": "headline"
       }
     ]
   },
   {
-    "full_name": "Asha Mehta",
-    "primary_email": "asha@example.com",
+    "full_name": "Dakshit Jha",
+    "primary_email": "dakshit@example.com",
     "primary_phone": "+14155550134",
-    "github": "https://github.com/ashamehta",
+    "github": "https://github.com/Dakshitj14",
     "skills": [
       "Machine Learning",
       "Python",
-      "Scala",
       "Spark"
     ],
-    "overall_confidence": 0.888,
+    "overall_confidence": 0.884,
     "provenance": [
       {
         "field": "full_name",
         "source": "candidates.csv:cand-002",
         "method": "field:full_name",
-        "confidence": 1.0,
-        "raw_value": "Asha Mehta",
+        "confidence": 0.9,
+        "raw_value": "Dakshit Jha",
         "note": null
       },
       {
         "field": "headline",
         "source": "candidates.csv:cand-002",
         "method": "field:headline",
-        "confidence": 0.75,
+        "confidence": 0.85,
         "raw_value": "Data Engineer",
         "note": null
-      },
-      {
-        "field": "headline",
-        "source": "github:ashamehta",
-        "method": "field:headline",
-        "confidence": 0.65,
-        "raw_value": "Data engineer focused on ML platforms.",
-        "note": "rejected_conflict:winner=candidates.csv:cand-002"
       },
       {
         "field": "years_experience",
         "source": "candidates.csv:cand-002",
         "method": "field:years_experience",
-        "confidence": 0.8,
+        "confidence": 0.9,
         "raw_value": 5.0,
         "note": null
       },
@@ -210,7 +249,7 @@
         "field": "location.country",
         "source": "candidates.csv:cand-002",
         "method": "normalize:country",
-        "confidence": 1.0,
+        "confidence": 0.9,
         "raw_value": "US",
         "note": null
       },
@@ -218,23 +257,23 @@
         "field": "links.github",
         "source": "candidates.csv:cand-002",
         "method": "field:github_url",
-        "confidence": 1.0,
-        "raw_value": "https://github.com/ashamehta",
+        "confidence": 0.9,
+        "raw_value": "https://github.com/Dakshitj14",
         "note": null
       },
       {
         "field": "emails",
         "source": "candidates.csv:cand-002",
         "method": "normalize:email",
-        "confidence": 1.0,
-        "raw_value": "asha@example.com",
+        "confidence": 0.93,
+        "raw_value": "dakshit@example.com",
         "note": null
       },
       {
         "field": "phones",
         "source": "candidates.csv:cand-002",
         "method": "normalize:phone",
-        "confidence": 0.83,
+        "confidence": 0.93,
         "raw_value": "+1 (415) 555-0134",
         "note": null
       },
@@ -250,23 +289,15 @@
         "field": "skills[Python]",
         "source": "candidates.csv:cand-002",
         "method": "csv_field:skills",
-        "confidence": 0.95,
+        "confidence": 0.8,
         "raw_value": "Python",
-        "note": null
-      },
-      {
-        "field": "skills[Scala]",
-        "source": "github:ashamehta",
-        "method": "github_repo:languages",
-        "confidence": 0.5,
-        "raw_value": "Scala",
         "note": null
       },
       {
         "field": "skills[Spark]",
         "source": "candidates.csv:cand-002",
         "method": "csv_field:skills",
-        "confidence": 0.95,
+        "confidence": 0.8,
         "raw_value": "Spark",
         "note": null
       },
@@ -296,15 +327,6 @@
           "end_year": "2020"
         },
         "note": null
-      }
-    ],
-    "diagnostics": [
-      {
-        "source": "github:ashamehta",
-        "stage": "merge",
-        "message": "Value lost conflict to higher confidence source: candidates.csv:cand-002",
-        "raw_value": "Data engineer focused on ML platforms.",
-        "field": "headline"
       }
     ]
   }

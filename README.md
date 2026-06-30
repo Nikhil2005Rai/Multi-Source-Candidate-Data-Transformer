@@ -51,7 +51,7 @@ python main.py --input samples/candidates.csv samples/github_profiles.json --id-
 Live GitHub API request:
 
 ```bash
-python main.py --input samples/candidates.csv --github nikhilrai --id-map samples/identity_map.json --config configs/custom_projection.json
+python main.py --input samples/candidates.csv --github Nikhil2005Rai --id-map samples/identity_map.json --config configs/custom_projection.json
 ```
 
 You can also pass a profile URL:
@@ -96,7 +96,9 @@ python -m unittest discover -s tests
 - LinkedIn scraping
 - Async source fetching
 - Fuzzy name-only identity matching
-- Statistical confidence modeling
+- Statistically learned / ML-based confidence modeling. The implementation does
+  include deterministic, rule-based confidence scoring with source weights,
+  corroboration bonuses, and conflict penalties.
 
 These are useful production extensions, but they add risk and noise for this
 assignment's core evaluation criteria.

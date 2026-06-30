@@ -1,23 +1,23 @@
 [
   {
-    "login": "nikhilrai",
-    "name": "Nikhil R.",
+    "login": "Nikhil2005Rai",
+    "name": "Nikhil Rai",
     "email": "nikhil@example.com",
-    "bio": "Backend engineer building data pipelines.",
+    "bio": "BTech student passionate about coding, web development, and building projects.",
     "location": "India",
-    "html_url": "https://github.com/nikhilrai",
+    "html_url": "https://github.com/Nikhil2005Rai",
     "repositories": [
       {"name": "candidate-transformer", "language": "Python"},
-      {"name": "ui-tools", "language": "TypeScript"}
+      {"name": "web-tools", "language": "TypeScript"}
     ]
   },
   {
-    "login": "ashamehta",
-    "name": "Asha Mehta",
-    "email": "asha@example.com",
+    "login": "Dakshitj14",
+    "name": "Dakshit Jha",
+    "email": "dakshit@example.com",
     "bio": "Data engineer focused on ML platforms.",
     "location": "United States",
-    "html_url": "https://github.com/ashamehta",
+    "html_url": "https://github.com/Dakshitj14",
     "repositories": [
       {"name": "feature-store", "language": "Python"},
       {"name": "ml-training", "languages": ["Spark", "Scala"]}
